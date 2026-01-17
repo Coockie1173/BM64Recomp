@@ -1,0 +1,3571 @@
+# Config file for Bomberman 64 Recompilation
+
+[input]
+entrypoint = 0x80000400
+# Paths are relative to the location of this config file.
+# elf_path = "quest64.elf"
+rom_file_path = "bm64.us.z64"
+symbols_file_path = "BM64Syms/dump.toml"
+output_func_path = "RecompiledFuncs"
+
+[patches]
+stubs = [
+    "func_80297D00", # watchlo
+    "func_80297D20", # watchhi, i think
+]
+
+# Patch out the zerojump system.
+[[patches.instruction]]
+func = "func_80297D30"
+vram = 0x80297D30
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297D38"
+vram = 0x80297D38
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297D40"
+vram = 0x80297D40
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297D48"
+vram = 0x80297D48
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297D50"
+vram = 0x80297D50
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297D58"
+vram = 0x80297D58
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297D60"
+vram = 0x80297D60
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297D68"
+vram = 0x80297D68
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297D70"
+vram = 0x80297D70
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297D78"
+vram = 0x80297D78
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297D80"
+vram = 0x80297D80
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297D88"
+vram = 0x80297D88
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297D90"
+vram = 0x80297D90
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297D98"
+vram = 0x80297D98
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297DA0"
+vram = 0x80297DA0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297DA8"
+vram = 0x80297DA8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297DB0"
+vram = 0x80297DB0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297DB8"
+vram = 0x80297DB8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297DC0"
+vram = 0x80297DC0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297DC8"
+vram = 0x80297DC8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297DD0"
+vram = 0x80297DD0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297DD8"
+vram = 0x80297DD8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297DE0"
+vram = 0x80297DE0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297DE8"
+vram = 0x80297DE8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297DF0"
+vram = 0x80297DF0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297DF8"
+vram = 0x80297DF8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297E00"
+vram = 0x80297E00
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297E08"
+vram = 0x80297E08
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297E10"
+vram = 0x80297E10
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297E18"
+vram = 0x80297E18
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297E20"
+vram = 0x80297E20
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297E28"
+vram = 0x80297E28
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297E30"
+vram = 0x80297E30
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297E38"
+vram = 0x80297E38
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297E40"
+vram = 0x80297E40
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297E48"
+vram = 0x80297E48
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297E50"
+vram = 0x80297E50
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297E58"
+vram = 0x80297E58
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297E60"
+vram = 0x80297E60
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297E68"
+vram = 0x80297E68
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297E70"
+vram = 0x80297E70
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297E78"
+vram = 0x80297E78
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297E80"
+vram = 0x80297E80
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297E88"
+vram = 0x80297E88
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297E90"
+vram = 0x80297E90
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297E98"
+vram = 0x80297E98
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297EA0"
+vram = 0x80297EA0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297EA8"
+vram = 0x80297EA8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297EB0"
+vram = 0x80297EB0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297EB8"
+vram = 0x80297EB8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297EC0"
+vram = 0x80297EC0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297EC8"
+vram = 0x80297EC8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297ED0"
+vram = 0x80297ED0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297ED8"
+vram = 0x80297ED8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297EE0"
+vram = 0x80297EE0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297EE8"
+vram = 0x80297EE8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297EF0"
+vram = 0x80297EF0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297EF8"
+vram = 0x80297EF8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297F00"
+vram = 0x80297F00
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297F08"
+vram = 0x80297F08
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297F10"
+vram = 0x80297F10
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297F18"
+vram = 0x80297F18
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297F20"
+vram = 0x80297F20
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297F28"
+vram = 0x80297F28
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297F30"
+vram = 0x80297F30
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297F38"
+vram = 0x80297F38
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297F40"
+vram = 0x80297F40
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297F48"
+vram = 0x80297F48
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297F50"
+vram = 0x80297F50
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297F58"
+vram = 0x80297F58
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297F60"
+vram = 0x80297F60
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297F68"
+vram = 0x80297F68
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297F70"
+vram = 0x80297F70
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297F78"
+vram = 0x80297F78
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297F80"
+vram = 0x80297F80
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297F88"
+vram = 0x80297F88
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297F90"
+vram = 0x80297F90
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297F98"
+vram = 0x80297F98
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297FA0"
+vram = 0x80297FA0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297FA8"
+vram = 0x80297FA8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297FB0"
+vram = 0x80297FB0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297FB8"
+vram = 0x80297FB8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297FC0"
+vram = 0x80297FC0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297FC8"
+vram = 0x80297FC8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297FD0"
+vram = 0x80297FD0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297FD8"
+vram = 0x80297FD8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297FE0"
+vram = 0x80297FE0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297FE8"
+vram = 0x80297FE8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297FF0"
+vram = 0x80297FF0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80297FF8"
+vram = 0x80297FF8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298000"
+vram = 0x80298000
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298008"
+vram = 0x80298008
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298010"
+vram = 0x80298010
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298018"
+vram = 0x80298018
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298020"
+vram = 0x80298020
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298028"
+vram = 0x80298028
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298030"
+vram = 0x80298030
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298038"
+vram = 0x80298038
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298040"
+vram = 0x80298040
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298048"
+vram = 0x80298048
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298050"
+vram = 0x80298050
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298058"
+vram = 0x80298058
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298060"
+vram = 0x80298060
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298068"
+vram = 0x80298068
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298070"
+vram = 0x80298070
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298078"
+vram = 0x80298078
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298080"
+vram = 0x80298080
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298088"
+vram = 0x80298088
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298090"
+vram = 0x80298090
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298098"
+vram = 0x80298098
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802980A0"
+vram = 0x802980A0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802980A8"
+vram = 0x802980A8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802980B0"
+vram = 0x802980B0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802980B8"
+vram = 0x802980B8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802980C0"
+vram = 0x802980C0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802980C8"
+vram = 0x802980C8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802980D0"
+vram = 0x802980D0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802980D8"
+vram = 0x802980D8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802980E0"
+vram = 0x802980E0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802980E8"
+vram = 0x802980E8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802980F0"
+vram = 0x802980F0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802980F8"
+vram = 0x802980F8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298100"
+vram = 0x80298100
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298108"
+vram = 0x80298108
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298110"
+vram = 0x80298110
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298118"
+vram = 0x80298118
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298120"
+vram = 0x80298120
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298128"
+vram = 0x80298128
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298130"
+vram = 0x80298130
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298138"
+vram = 0x80298138
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298140"
+vram = 0x80298140
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298148"
+vram = 0x80298148
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298150"
+vram = 0x80298150
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298158"
+vram = 0x80298158
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298160"
+vram = 0x80298160
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298168"
+vram = 0x80298168
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298170"
+vram = 0x80298170
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298178"
+vram = 0x80298178
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298180"
+vram = 0x80298180
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298188"
+vram = 0x80298188
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298190"
+vram = 0x80298190
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298198"
+vram = 0x80298198
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802981A0"
+vram = 0x802981A0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802981A8"
+vram = 0x802981A8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802981B0"
+vram = 0x802981B0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802981B8"
+vram = 0x802981B8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802981C0"
+vram = 0x802981C0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802981C8"
+vram = 0x802981C8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802981D0"
+vram = 0x802981D0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802981D8"
+vram = 0x802981D8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802981E0"
+vram = 0x802981E0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802981E8"
+vram = 0x802981E8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802981F0"
+vram = 0x802981F0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802981F8"
+vram = 0x802981F8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298200"
+vram = 0x80298200
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298208"
+vram = 0x80298208
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298210"
+vram = 0x80298210
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298218"
+vram = 0x80298218
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298220"
+vram = 0x80298220
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298228"
+vram = 0x80298228
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298230"
+vram = 0x80298230
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298238"
+vram = 0x80298238
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298240"
+vram = 0x80298240
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298248"
+vram = 0x80298248
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298250"
+vram = 0x80298250
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298258"
+vram = 0x80298258
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298260"
+vram = 0x80298260
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298268"
+vram = 0x80298268
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298270"
+vram = 0x80298270
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298278"
+vram = 0x80298278
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298280"
+vram = 0x80298280
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298288"
+vram = 0x80298288
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298290"
+vram = 0x80298290
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298298"
+vram = 0x80298298
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802982A0"
+vram = 0x802982A0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802982A8"
+vram = 0x802982A8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802982B0"
+vram = 0x802982B0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802982B8"
+vram = 0x802982B8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802982C0"
+vram = 0x802982C0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802982C8"
+vram = 0x802982C8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802982D0"
+vram = 0x802982D0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802982D8"
+vram = 0x802982D8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802982E0"
+vram = 0x802982E0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802982E8"
+vram = 0x802982E8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802982F0"
+vram = 0x802982F0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802982F8"
+vram = 0x802982F8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298300"
+vram = 0x80298300
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298308"
+vram = 0x80298308
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298310"
+vram = 0x80298310
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298318"
+vram = 0x80298318
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298320"
+vram = 0x80298320
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298328"
+vram = 0x80298328
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298330"
+vram = 0x80298330
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298338"
+vram = 0x80298338
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298340"
+vram = 0x80298340
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298348"
+vram = 0x80298348
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298350"
+vram = 0x80298350
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298358"
+vram = 0x80298358
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298360"
+vram = 0x80298360
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298368"
+vram = 0x80298368
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298370"
+vram = 0x80298370
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298378"
+vram = 0x80298378
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298380"
+vram = 0x80298380
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298388"
+vram = 0x80298388
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298390"
+vram = 0x80298390
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298398"
+vram = 0x80298398
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802983A0"
+vram = 0x802983A0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802983A8"
+vram = 0x802983A8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802983B0"
+vram = 0x802983B0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802983B8"
+vram = 0x802983B8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802983C0"
+vram = 0x802983C0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802983C8"
+vram = 0x802983C8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802983D0"
+vram = 0x802983D0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802983D8"
+vram = 0x802983D8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802983E0"
+vram = 0x802983E0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802983E8"
+vram = 0x802983E8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802983F0"
+vram = 0x802983F0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802983F8"
+vram = 0x802983F8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298400"
+vram = 0x80298400
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298408"
+vram = 0x80298408
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298410"
+vram = 0x80298410
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298418"
+vram = 0x80298418
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298420"
+vram = 0x80298420
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298428"
+vram = 0x80298428
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298430"
+vram = 0x80298430
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298438"
+vram = 0x80298438
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298440"
+vram = 0x80298440
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298448"
+vram = 0x80298448
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298450"
+vram = 0x80298450
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298458"
+vram = 0x80298458
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298460"
+vram = 0x80298460
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298468"
+vram = 0x80298468
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298470"
+vram = 0x80298470
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298478"
+vram = 0x80298478
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298480"
+vram = 0x80298480
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298488"
+vram = 0x80298488
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298490"
+vram = 0x80298490
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298498"
+vram = 0x80298498
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802984A0"
+vram = 0x802984A0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802984A8"
+vram = 0x802984A8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802984B0"
+vram = 0x802984B0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802984B8"
+vram = 0x802984B8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802984C0"
+vram = 0x802984C0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802984C8"
+vram = 0x802984C8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802984D0"
+vram = 0x802984D0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802984D8"
+vram = 0x802984D8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802984E0"
+vram = 0x802984E0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802984E8"
+vram = 0x802984E8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802984F0"
+vram = 0x802984F0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802984F8"
+vram = 0x802984F8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298500"
+vram = 0x80298500
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298508"
+vram = 0x80298508
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298510"
+vram = 0x80298510
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298518"
+vram = 0x80298518
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298520"
+vram = 0x80298520
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298528"
+vram = 0x80298528
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298530"
+vram = 0x80298530
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298538"
+vram = 0x80298538
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298540"
+vram = 0x80298540
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298548"
+vram = 0x80298548
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298550"
+vram = 0x80298550
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298558"
+vram = 0x80298558
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298560"
+vram = 0x80298560
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298568"
+vram = 0x80298568
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298570"
+vram = 0x80298570
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298578"
+vram = 0x80298578
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298580"
+vram = 0x80298580
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298588"
+vram = 0x80298588
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298590"
+vram = 0x80298590
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298598"
+vram = 0x80298598
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802985A0"
+vram = 0x802985A0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802985A8"
+vram = 0x802985A8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802985B0"
+vram = 0x802985B0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802985B8"
+vram = 0x802985B8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802985C0"
+vram = 0x802985C0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802985C8"
+vram = 0x802985C8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802985D0"
+vram = 0x802985D0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802985D8"
+vram = 0x802985D8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802985E0"
+vram = 0x802985E0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802985E8"
+vram = 0x802985E8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802985F0"
+vram = 0x802985F0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802985F8"
+vram = 0x802985F8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298600"
+vram = 0x80298600
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298608"
+vram = 0x80298608
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298610"
+vram = 0x80298610
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298618"
+vram = 0x80298618
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298620"
+vram = 0x80298620
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298628"
+vram = 0x80298628
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298630"
+vram = 0x80298630
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298638"
+vram = 0x80298638
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298640"
+vram = 0x80298640
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298648"
+vram = 0x80298648
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298650"
+vram = 0x80298650
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298658"
+vram = 0x80298658
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298660"
+vram = 0x80298660
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298668"
+vram = 0x80298668
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298670"
+vram = 0x80298670
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298678"
+vram = 0x80298678
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298680"
+vram = 0x80298680
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298688"
+vram = 0x80298688
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298690"
+vram = 0x80298690
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298698"
+vram = 0x80298698
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802986A0"
+vram = 0x802986A0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802986A8"
+vram = 0x802986A8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802986B0"
+vram = 0x802986B0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802986B8"
+vram = 0x802986B8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802986C0"
+vram = 0x802986C0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802986C8"
+vram = 0x802986C8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802986D0"
+vram = 0x802986D0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802986D8"
+vram = 0x802986D8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802986E0"
+vram = 0x802986E0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802986E8"
+vram = 0x802986E8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802986F0"
+vram = 0x802986F0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802986F8"
+vram = 0x802986F8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298700"
+vram = 0x80298700
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298708"
+vram = 0x80298708
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298710"
+vram = 0x80298710
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298718"
+vram = 0x80298718
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298720"
+vram = 0x80298720
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298728"
+vram = 0x80298728
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298730"
+vram = 0x80298730
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298738"
+vram = 0x80298738
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298740"
+vram = 0x80298740
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298748"
+vram = 0x80298748
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298750"
+vram = 0x80298750
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298758"
+vram = 0x80298758
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298760"
+vram = 0x80298760
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298768"
+vram = 0x80298768
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298770"
+vram = 0x80298770
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298778"
+vram = 0x80298778
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298780"
+vram = 0x80298780
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298788"
+vram = 0x80298788
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298790"
+vram = 0x80298790
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298798"
+vram = 0x80298798
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802987A0"
+vram = 0x802987A0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802987A8"
+vram = 0x802987A8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802987B0"
+vram = 0x802987B0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802987B8"
+vram = 0x802987B8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802987C0"
+vram = 0x802987C0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802987C8"
+vram = 0x802987C8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802987D0"
+vram = 0x802987D0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802987D8"
+vram = 0x802987D8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802987E0"
+vram = 0x802987E0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802987E8"
+vram = 0x802987E8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802987F0"
+vram = 0x802987F0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802987F8"
+vram = 0x802987F8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298800"
+vram = 0x80298800
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298808"
+vram = 0x80298808
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298810"
+vram = 0x80298810
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298818"
+vram = 0x80298818
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298820"
+vram = 0x80298820
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298828"
+vram = 0x80298828
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298830"
+vram = 0x80298830
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298838"
+vram = 0x80298838
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298840"
+vram = 0x80298840
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298848"
+vram = 0x80298848
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298850"
+vram = 0x80298850
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298858"
+vram = 0x80298858
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298860"
+vram = 0x80298860
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298868"
+vram = 0x80298868
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298870"
+vram = 0x80298870
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298878"
+vram = 0x80298878
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298880"
+vram = 0x80298880
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298888"
+vram = 0x80298888
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298890"
+vram = 0x80298890
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298898"
+vram = 0x80298898
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802988A0"
+vram = 0x802988A0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802988A8"
+vram = 0x802988A8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802988B0"
+vram = 0x802988B0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802988B8"
+vram = 0x802988B8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802988C0"
+vram = 0x802988C0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802988C8"
+vram = 0x802988C8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802988D0"
+vram = 0x802988D0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802988D8"
+vram = 0x802988D8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802988E0"
+vram = 0x802988E0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802988E8"
+vram = 0x802988E8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802988F0"
+vram = 0x802988F0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802988F8"
+vram = 0x802988F8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298900"
+vram = 0x80298900
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298908"
+vram = 0x80298908
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298910"
+vram = 0x80298910
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298918"
+vram = 0x80298918
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298920"
+vram = 0x80298920
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298928"
+vram = 0x80298928
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298930"
+vram = 0x80298930
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298938"
+vram = 0x80298938
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298940"
+vram = 0x80298940
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298948"
+vram = 0x80298948
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298950"
+vram = 0x80298950
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298958"
+vram = 0x80298958
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298960"
+vram = 0x80298960
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298968"
+vram = 0x80298968
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298970"
+vram = 0x80298970
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298978"
+vram = 0x80298978
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298980"
+vram = 0x80298980
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298988"
+vram = 0x80298988
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298990"
+vram = 0x80298990
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298998"
+vram = 0x80298998
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802989A0"
+vram = 0x802989A0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802989A8"
+vram = 0x802989A8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802989B0"
+vram = 0x802989B0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802989B8"
+vram = 0x802989B8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802989C0"
+vram = 0x802989C0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802989C8"
+vram = 0x802989C8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802989D0"
+vram = 0x802989D0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802989D8"
+vram = 0x802989D8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802989E0"
+vram = 0x802989E0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802989E8"
+vram = 0x802989E8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802989F0"
+vram = 0x802989F0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802989F8"
+vram = 0x802989F8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298A00"
+vram = 0x80298A00
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298A08"
+vram = 0x80298A08
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298A10"
+vram = 0x80298A10
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298A18"
+vram = 0x80298A18
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298A20"
+vram = 0x80298A20
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298A28"
+vram = 0x80298A28
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298A30"
+vram = 0x80298A30
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298A38"
+vram = 0x80298A38
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298A40"
+vram = 0x80298A40
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298A48"
+vram = 0x80298A48
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298A50"
+vram = 0x80298A50
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298A58"
+vram = 0x80298A58
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298A60"
+vram = 0x80298A60
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298A68"
+vram = 0x80298A68
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298A70"
+vram = 0x80298A70
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298A78"
+vram = 0x80298A78
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298A80"
+vram = 0x80298A80
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298A88"
+vram = 0x80298A88
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298A90"
+vram = 0x80298A90
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298A98"
+vram = 0x80298A98
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298AA0"
+vram = 0x80298AA0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298AA8"
+vram = 0x80298AA8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298AB0"
+vram = 0x80298AB0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298AB8"
+vram = 0x80298AB8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298AC0"
+vram = 0x80298AC0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298AC8"
+vram = 0x80298AC8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298AD0"
+vram = 0x80298AD0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298AD8"
+vram = 0x80298AD8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298AE0"
+vram = 0x80298AE0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298AE8"
+vram = 0x80298AE8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298AF0"
+vram = 0x80298AF0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298AF8"
+vram = 0x80298AF8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298B00"
+vram = 0x80298B00
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298B08"
+vram = 0x80298B08
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298B10"
+vram = 0x80298B10
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298B18"
+vram = 0x80298B18
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298B20"
+vram = 0x80298B20
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298B28"
+vram = 0x80298B28
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298B30"
+vram = 0x80298B30
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298B38"
+vram = 0x80298B38
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298B40"
+vram = 0x80298B40
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298B48"
+vram = 0x80298B48
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298B50"
+vram = 0x80298B50
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298B58"
+vram = 0x80298B58
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298B60"
+vram = 0x80298B60
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298B68"
+vram = 0x80298B68
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298B70"
+vram = 0x80298B70
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298B78"
+vram = 0x80298B78
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298B80"
+vram = 0x80298B80
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298B88"
+vram = 0x80298B88
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298B90"
+vram = 0x80298B90
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298B98"
+vram = 0x80298B98
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298BA0"
+vram = 0x80298BA0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298BA8"
+vram = 0x80298BA8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298BB0"
+vram = 0x80298BB0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298BB8"
+vram = 0x80298BB8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298BC0"
+vram = 0x80298BC0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298BC8"
+vram = 0x80298BC8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298BD0"
+vram = 0x80298BD0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298BD8"
+vram = 0x80298BD8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298BE0"
+vram = 0x80298BE0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298BE8"
+vram = 0x80298BE8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298BF0"
+vram = 0x80298BF0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298BF8"
+vram = 0x80298BF8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298C00"
+vram = 0x80298C00
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298C08"
+vram = 0x80298C08
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298C10"
+vram = 0x80298C10
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298C18"
+vram = 0x80298C18
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298C20"
+vram = 0x80298C20
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298C28"
+vram = 0x80298C28
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298C30"
+vram = 0x80298C30
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298C38"
+vram = 0x80298C38
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298C40"
+vram = 0x80298C40
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298C48"
+vram = 0x80298C48
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298C50"
+vram = 0x80298C50
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298C58"
+vram = 0x80298C58
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298C60"
+vram = 0x80298C60
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298C68"
+vram = 0x80298C68
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298C70"
+vram = 0x80298C70
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298C78"
+vram = 0x80298C78
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298C80"
+vram = 0x80298C80
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298C88"
+vram = 0x80298C88
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298C90"
+vram = 0x80298C90
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298C98"
+vram = 0x80298C98
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298CA0"
+vram = 0x80298CA0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298CA8"
+vram = 0x80298CA8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298CB0"
+vram = 0x80298CB0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298CB8"
+vram = 0x80298CB8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298CC0"
+vram = 0x80298CC0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298CC8"
+vram = 0x80298CC8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298CD0"
+vram = 0x80298CD0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298CD8"
+vram = 0x80298CD8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298CE0"
+vram = 0x80298CE0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298CE8"
+vram = 0x80298CE8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298CF0"
+vram = 0x80298CF0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298CF8"
+vram = 0x80298CF8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298D00"
+vram = 0x80298D00
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298D08"
+vram = 0x80298D08
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298D10"
+vram = 0x80298D10
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298D18"
+vram = 0x80298D18
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298D20"
+vram = 0x80298D20
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298D28"
+vram = 0x80298D28
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298D30"
+vram = 0x80298D30
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298D38"
+vram = 0x80298D38
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298D40"
+vram = 0x80298D40
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298D48"
+vram = 0x80298D48
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298D50"
+vram = 0x80298D50
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298D58"
+vram = 0x80298D58
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298D60"
+vram = 0x80298D60
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298D68"
+vram = 0x80298D68
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298D70"
+vram = 0x80298D70
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298D78"
+vram = 0x80298D78
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298D80"
+vram = 0x80298D80
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298D88"
+vram = 0x80298D88
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298D90"
+vram = 0x80298D90
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298D98"
+vram = 0x80298D98
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298DA0"
+vram = 0x80298DA0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298DA8"
+vram = 0x80298DA8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298DB0"
+vram = 0x80298DB0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298DB8"
+vram = 0x80298DB8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298DC0"
+vram = 0x80298DC0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298DC8"
+vram = 0x80298DC8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298DD0"
+vram = 0x80298DD0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298DD8"
+vram = 0x80298DD8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298DE0"
+vram = 0x80298DE0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298DE8"
+vram = 0x80298DE8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298DF0"
+vram = 0x80298DF0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298DF8"
+vram = 0x80298DF8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298E00"
+vram = 0x80298E00
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298E08"
+vram = 0x80298E08
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298E10"
+vram = 0x80298E10
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298E18"
+vram = 0x80298E18
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298E20"
+vram = 0x80298E20
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298E28"
+vram = 0x80298E28
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298E30"
+vram = 0x80298E30
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298E38"
+vram = 0x80298E38
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298E40"
+vram = 0x80298E40
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298E48"
+vram = 0x80298E48
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298E50"
+vram = 0x80298E50
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298E58"
+vram = 0x80298E58
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298E60"
+vram = 0x80298E60
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298E68"
+vram = 0x80298E68
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298E70"
+vram = 0x80298E70
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298E78"
+vram = 0x80298E78
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298E80"
+vram = 0x80298E80
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298E88"
+vram = 0x80298E88
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298E90"
+vram = 0x80298E90
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298E98"
+vram = 0x80298E98
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298EA0"
+vram = 0x80298EA0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298EA8"
+vram = 0x80298EA8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298EB0"
+vram = 0x80298EB0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298EB8"
+vram = 0x80298EB8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298EC0"
+vram = 0x80298EC0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298EC8"
+vram = 0x80298EC8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298ED0"
+vram = 0x80298ED0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298ED8"
+vram = 0x80298ED8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298EE0"
+vram = 0x80298EE0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298EE8"
+vram = 0x80298EE8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298EF0"
+vram = 0x80298EF0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298EF8"
+vram = 0x80298EF8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298F00"
+vram = 0x80298F00
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298F08"
+vram = 0x80298F08
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298F10"
+vram = 0x80298F10
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298F18"
+vram = 0x80298F18
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298F20"
+vram = 0x80298F20
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298F28"
+vram = 0x80298F28
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298F30"
+vram = 0x80298F30
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298F38"
+vram = 0x80298F38
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298F40"
+vram = 0x80298F40
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298F48"
+vram = 0x80298F48
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298F50"
+vram = 0x80298F50
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298F58"
+vram = 0x80298F58
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298F60"
+vram = 0x80298F60
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298F68"
+vram = 0x80298F68
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298F70"
+vram = 0x80298F70
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298F78"
+vram = 0x80298F78
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298F80"
+vram = 0x80298F80
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298F88"
+vram = 0x80298F88
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298F90"
+vram = 0x80298F90
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298F98"
+vram = 0x80298F98
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298FA0"
+vram = 0x80298FA0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298FA8"
+vram = 0x80298FA8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298FB0"
+vram = 0x80298FB0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298FB8"
+vram = 0x80298FB8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298FC0"
+vram = 0x80298FC0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298FC8"
+vram = 0x80298FC8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298FD0"
+vram = 0x80298FD0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298FD8"
+vram = 0x80298FD8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298FE0"
+vram = 0x80298FE0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298FE8"
+vram = 0x80298FE8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298FF0"
+vram = 0x80298FF0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80298FF8"
+vram = 0x80298FF8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299000"
+vram = 0x80299000
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299008"
+vram = 0x80299008
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299010"
+vram = 0x80299010
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299018"
+vram = 0x80299018
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299020"
+vram = 0x80299020
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299028"
+vram = 0x80299028
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299030"
+vram = 0x80299030
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299038"
+vram = 0x80299038
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299040"
+vram = 0x80299040
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299048"
+vram = 0x80299048
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299050"
+vram = 0x80299050
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299058"
+vram = 0x80299058
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299060"
+vram = 0x80299060
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299068"
+vram = 0x80299068
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299070"
+vram = 0x80299070
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299078"
+vram = 0x80299078
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299080"
+vram = 0x80299080
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299088"
+vram = 0x80299088
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299090"
+vram = 0x80299090
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299098"
+vram = 0x80299098
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802990A0"
+vram = 0x802990A0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802990A8"
+vram = 0x802990A8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802990B0"
+vram = 0x802990B0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802990B8"
+vram = 0x802990B8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802990C0"
+vram = 0x802990C0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802990C8"
+vram = 0x802990C8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802990D0"
+vram = 0x802990D0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802990D8"
+vram = 0x802990D8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802990E0"
+vram = 0x802990E0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802990E8"
+vram = 0x802990E8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802990F0"
+vram = 0x802990F0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802990F8"
+vram = 0x802990F8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299100"
+vram = 0x80299100
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299108"
+vram = 0x80299108
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299110"
+vram = 0x80299110
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299118"
+vram = 0x80299118
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299120"
+vram = 0x80299120
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299128"
+vram = 0x80299128
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299130"
+vram = 0x80299130
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299138"
+vram = 0x80299138
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299140"
+vram = 0x80299140
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299148"
+vram = 0x80299148
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299150"
+vram = 0x80299150
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299158"
+vram = 0x80299158
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299160"
+vram = 0x80299160
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299168"
+vram = 0x80299168
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299170"
+vram = 0x80299170
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299178"
+vram = 0x80299178
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299180"
+vram = 0x80299180
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299188"
+vram = 0x80299188
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299190"
+vram = 0x80299190
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299198"
+vram = 0x80299198
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802991A0"
+vram = 0x802991A0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802991A8"
+vram = 0x802991A8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802991B0"
+vram = 0x802991B0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802991B8"
+vram = 0x802991B8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802991C0"
+vram = 0x802991C0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802991C8"
+vram = 0x802991C8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802991D0"
+vram = 0x802991D0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802991D8"
+vram = 0x802991D8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802991E0"
+vram = 0x802991E0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802991E8"
+vram = 0x802991E8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802991F0"
+vram = 0x802991F0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802991F8"
+vram = 0x802991F8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299200"
+vram = 0x80299200
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299208"
+vram = 0x80299208
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299210"
+vram = 0x80299210
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299218"
+vram = 0x80299218
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299220"
+vram = 0x80299220
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299228"
+vram = 0x80299228
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299230"
+vram = 0x80299230
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299238"
+vram = 0x80299238
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299240"
+vram = 0x80299240
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299248"
+vram = 0x80299248
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299250"
+vram = 0x80299250
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299258"
+vram = 0x80299258
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299260"
+vram = 0x80299260
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299268"
+vram = 0x80299268
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299270"
+vram = 0x80299270
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299278"
+vram = 0x80299278
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299280"
+vram = 0x80299280
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299288"
+vram = 0x80299288
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299290"
+vram = 0x80299290
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299298"
+vram = 0x80299298
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802992A0"
+vram = 0x802992A0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802992A8"
+vram = 0x802992A8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802992B0"
+vram = 0x802992B0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802992B8"
+vram = 0x802992B8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802992C0"
+vram = 0x802992C0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802992C8"
+vram = 0x802992C8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802992D0"
+vram = 0x802992D0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802992D8"
+vram = 0x802992D8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802992E0"
+vram = 0x802992E0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802992E8"
+vram = 0x802992E8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802992F0"
+vram = 0x802992F0
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_802992F8"
+vram = 0x802992F8
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299300"
+vram = 0x80299300
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299308"
+vram = 0x80299308
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299310"
+vram = 0x80299310
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299318"
+vram = 0x80299318
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299320"
+vram = 0x80299320
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299328"
+vram = 0x80299328
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299330"
+vram = 0x80299330
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299338"
+vram = 0x80299338
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299340"
+vram = 0x80299340
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299348"
+vram = 0x80299348
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299350"
+vram = 0x80299350
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299358"
+vram = 0x80299358
+value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80299360"
+vram = 0x80299360
+value = 0x0C010800 # jr func_80042000

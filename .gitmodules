@@ -1,0 +1,3 @@
+[submodule "BM64Syms"]
+	path = BM64Syms
+	url = git@github.com:RevoSucks/BM64Syms.git
