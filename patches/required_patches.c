@@ -1,6 +1,6 @@
 #include "patches.h"
-#include "PR/os_pi.h"
 #include "misc_funcs.h"
+#include "PR/os_pi.h"
 
 int dummy = 1;
 int dummyBSS;
