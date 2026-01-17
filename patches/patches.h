@@ -20,17 +20,11 @@
 #define osWritebackDCache osWritebackDCache_recomp
 #define osInvalICache osInvalICache_recomp
 #define osGetTime osGetTime_recomp
-#define osMapTLB osMapTLB_recomp
 
 #define osContStartReadData osContStartReadData_recomp
 #define osContGetReadData osContGetReadData_recomp
 #define osContStartQuery osContStartQuery_recomp
 #define osContGetQuery osContGetQuery_recomp
-
-#define __osCheckId osCheckId_recomp
-#define __osPfsSelectBank __osPfsSelectBank_recomp
-#define __osContRamRead __osContRamRead_recomp
-#define __osSiRawStartDma __osSiRawStartDma_recomp
 
 #define sinf __sinf_recomp
 #define cosf __cosf_recomp
