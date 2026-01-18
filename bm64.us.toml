@@ -7,11 +7,13 @@ entrypoint = 0x80000400
 rom_file_path = "bm64.us.z64"
 symbols_file_path = "BM64Syms/dump.toml"
 output_func_path = "RecompiledFuncs"
+trace_mode = true
 
 [patches]
 stubs = [
     "func_80297D00", # watchlo
     "func_80297D20", # watchhi, i think
+    "set_zero_vaddr_tlb", # zerojump system, has already been stubbed
 ]
 
 ignored = [
@@ -3574,3 +3576,8 @@ value = 0x0C010800 # jr func_80042000
 func = "func_80299360"
 vram = 0x80299360
 value = 0x0C010800 # jr func_80042000
+
+[[patches.instruction]]
+func = "func_80042000"
+vram = 0x80042094
+value = 0x03E00008 # jr ra. Remove the infinite loop

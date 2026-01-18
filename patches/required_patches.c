@@ -11,6 +11,8 @@ extern OSMesgQueue D_8001C418;
 
 extern void osYieldThread(void);
 
+extern void func_800007F0(s32 id, void* vAddr);
+
 RECOMP_PATCH void load_from_rom_to_addr(void* vAddr, s32 size, u32 devAddr) {
     if (D_8001C3F8 != 0) {
         do {
@@ -25,7 +27,7 @@ RECOMP_PATCH void load_from_rom_to_addr(void* vAddr, s32 size, u32 devAddr) {
     
     recomp_load_overlays((u32) devAddr, (void*) vAddr, size);
 
-    osPiStartDma(&D_8001C400, 0, 0, devAddr, vAddr, (u32) size, &D_8001C418);
+    osPiStartDma_recomp(&D_8001C400, 0, 0, devAddr, vAddr, (u32) size, &D_8001C418);
     
     // yield_self_1ms();
 
@@ -35,7 +37,7 @@ RECOMP_PATCH void load_from_rom_to_addr(void* vAddr, s32 size, u32 devAddr) {
 
 RECOMP_PATCH void func_8000064C(void* vramAddr, u32 size, u32 devAddr) {
     recomp_load_overlays(devAddr, vramAddr, size); //@recomp patch
-    osPiStartDma(&D_8001C400, 0, 0, devAddr, vramAddr, size, &D_8001C418);
+    osPiStartDma_recomp(&D_8001C400, 0, 0, devAddr, vramAddr, size, &D_8001C418);
 }
 
 RECOMP_PATCH void func_8000059C(s32 devAddr, u32 size, void* vramAddr) {
@@ -47,17 +49,25 @@ RECOMP_PATCH void func_8000059C(s32 devAddr, u32 size, void* vramAddr) {
     D_8001C3F8 = 1;
     //osWritebackDCache(vramAddr, devAddr);
     recomp_load_overlays(devAddr, vramAddr, size); //@recomp patch
-    osPiStartDma(&D_8001C400, 0, 1, (u32) devAddr, vramAddr, size, &D_8001C418);
+    osPiStartDma_recomp(&D_8001C400, 0, 1, (u32) devAddr, vramAddr, size, &D_8001C418);
     osRecvMesg(&D_8001C418, NULL, 1);
     D_8001C3F8 = 0;
 }
 
 RECOMP_PATCH void func_80000524(u32 devAddr, u32 size, void* vramAddr) {
     recomp_load_overlays(devAddr, vramAddr, size); //@recomp patch
-    osPiStartDma(&D_8001C400, 0, 1, devAddr, vramAddr, size, &D_8001C418);
+    osPiStartDma_recomp(&D_8001C400, 0, 1, devAddr, vramAddr, size, &D_8001C418);
 }
 
 RECOMP_PATCH void func_800004D0(void* vramAddr, u32 size, u32 devAddr, s32 arg3) {
     recomp_load_overlays(devAddr, vramAddr, size); //@recomp patch
-    osPiStartDma(&D_8001C400, 0, arg3, devAddr, vramAddr, size, &D_8001C418);
+    osPiStartDma_recomp(&D_8001C400, 0, arg3, devAddr, vramAddr, size, &D_8001C418);
+}
+
+RECOMP_PATCH void func_8000083C(s32 id, void *vAddr, s32 arg) {
+    void (*volatile localarg)(int);
+    // its also possible to match without fake code by omitting arg1 passed to func_800007F0. which would be UB
+    func_800007F0(id, vAddr);
+    (localarg = vAddr)(arg);
+    if(!vAddr) {} // fake check to bump regalloc. see above note
 }
