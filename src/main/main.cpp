@@ -144,7 +144,7 @@ ultramodern::renderer::WindowHandle create_window(ultramodern::gfx_callbacks_t::
     flags |= SDL_WINDOW_VULKAN;
 #endif
 
-    window = SDL_CreateWindow("Quest 64: Recompiled", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1600, 960,  flags);
+    window = SDL_CreateWindow("Bomberman 64: Recompiled", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1600, 960,  flags);
 #if defined(__linux__)
     SetImageAsIcon("icons/512.png",window);
     if (ultramodern::renderer::get_graphics_config().wm_option == ultramodern::renderer::WindowMode::Fullscreen) { // TODO: Remove once RT64 gets native fullscreen support on Linux
@@ -362,6 +362,13 @@ std::vector<recomp::GameEntry> supported_games = {
 };
 
 // TODO: move somewhere else
+/*
+ * 0 = PI (pri 0x96)
+ * 0 = VI (pri 0xFE)
+ * 1 = Init (pri 0xA)
+ * 3 = Game (pri 0xA)
+ * 4 = Looks like RSP Thread (pri 0x7F)
+ */
 namespace zelda64 {
     std::string get_game_thread_name(const OSThread* t) {
         std::string name = "[Game] ";
@@ -369,77 +376,30 @@ namespace zelda64 {
         switch (t->id) {
             case 0:
                 switch (t->priority) {
-                    case 150:
+                    case 0x96:
                         name += "PIMGR";
                         break;
-
-                    case 254:
+                    case 0xFE:
                         name += "VIMGR";
                         break;
-
                     default:
                         name += std::to_string(t->id);
                         break;
                 }
                 break;
-
             case 1:
-                name += "IDLE";
+                name += "INIT";
                 break;
-
-            case 2:
-                switch (t->priority) {
-                    case 5:
-                        name += "SLOWLY";
-                        break;
-
-                    case 127:
-                        name += "FAULT";
-                        break;
-
-                    default:
-                        name += std::to_string(t->id);
-                        break;
-                }
-                break;
-
             case 3:
-                name += "MAIN";
+                name += "GAME";
                 break;
-
             case 4:
-                name += "GRAPH";
+                name += "RSP";
                 break;
-
-            case 5:
-                name += "SCHED";
-                break;
-
-            case 7:
-                name += "PADMGR";
-                break;
-
-            case 10:
-                name += "AUDIOMGR";
-                break;
-
-            case 13:
-                name += "FLASHROM";
-                break;
-
-            case 18:
-                name += "DMAMGR";
-                break;
-
-            case 19:
-                name += "IRQMGR";
-                break;
-
             default:
                 name += std::to_string(t->id);
                 break;
         }
-
         return name;
     }
 }
@@ -715,21 +675,18 @@ int main(int argc, char** argv) {
     // Register the .rtz texture pack file format with the previous content type as its only allowed content type.
     recomp::mods::register_mod_container_type("rtz", std::vector{ texture_pack_content_type_id }, false);
 
-    recomp::Configuration cfg{
-        .project_version = project_version,
-        .window_handle = {},
-        .rsp_callbacks = rsp_callbacks,
-        .renderer_callbacks = renderer_callbacks,
-        .audio_callbacks = audio_callbacks,
-        .input_callbacks = input_callbacks,
-        .gfx_callbacks = gfx_callbacks,
-        .events_callbacks = thread_callbacks,
-        .error_handling_callbacks = error_handling_callbacks,
-        .threads_callbacks = threads_callbacks,
-        .message_queue_control = {},
-    };
-
-    recomp::start(cfg);
+    recomp::start(
+        project_version,
+        {},
+        rsp_callbacks,
+        renderer_callbacks,
+        audio_callbacks,
+        input_callbacks,
+        gfx_callbacks,
+        thread_callbacks,
+        error_handling_callbacks,
+        threads_callbacks
+    );
 
     NFD_Quit();
 
