@@ -1,6 +1,6 @@
 [submodule "BM64Syms"]
 	path = BM64Syms
-	url = git@github.com:RevoSucks/BM64Syms.git
+	url = https://github.com/RevoSucks/BM64Syms.git
 [submodule "lib/RmlUi"]
 	path = lib/RmlUi
 	url = https://github.com/mikke89/RmlUi/
