@@ -142,107 +142,108 @@ RECOMP_PATCH void load_from_rom_to_addr(void* vAddr, s32 size, u32 devAddr) {
 
     // are we loading one of the overlays? Set the ID.
     switch(devAddr) {
-        case 0x00122016: gOverlayID = LOADED_OVL_1_SUBOVL_1; break;
-        case 0x00122B34: gOverlayID = LOADED_OVL_1_SUBOVL_2; break;
-        case 0x001236E2: gOverlayID = LOADED_OVL_1_SUBOVL_3; break;
-        case 0x00124264: gOverlayID = LOADED_OVL_1_SUBOVL_4; break;
-        case 0x0014201C: gOverlayID = LOADED_OVL_2_SUBOVL_1; break;
-        case 0x00145A94: gOverlayID = LOADED_OVL_2_SUBOVL_2; break;
-        case 0x00148D98: gOverlayID = LOADED_OVL_2_SUBOVL_3; break;
-        case 0x0014C38E: gOverlayID = LOADED_OVL_2_SUBOVL_4; break;
-        case 0x0014E26A: gOverlayID = LOADED_OVL_2_SUBOVL_5; break;
-        case 0x001521AC: gOverlayID = LOADED_OVL_2_SUBOVL_6; break;
-        case 0x0016201E: gOverlayID = LOADED_OVL_3_SUBOVL_1; break;
-        case 0x00163B62: gOverlayID = LOADED_OVL_3_SUBOVL_2; break;
-        case 0x0016808C: gOverlayID = LOADED_OVL_3_SUBOVL_3; break;
-        case 0x0016B954: gOverlayID = LOADED_OVL_3_SUBOVL_4; break;
-        case 0x0016F620: gOverlayID = LOADED_OVL_3_SUBOVL_5; break;
-        case 0x0017157E: gOverlayID = LOADED_OVL_3_SUBOVL_6; break;
-        case 0x00175AE4: gOverlayID = LOADED_OVL_3_SUBOVL_7; break;
-        case 0x00182028: gOverlayID = LOADED_OVL_4_SUBOVL_1; break;
-        case 0x001866D6: gOverlayID = LOADED_OVL_4_SUBOVL_2; break;
-        case 0x0018A962: gOverlayID = LOADED_OVL_4_SUBOVL_3; break;
-        case 0x0018BBB2: gOverlayID = LOADED_OVL_4_SUBOVL_4; break;
-        case 0x0018D4BC: gOverlayID = LOADED_OVL_4_SUBOVL_5; break;
-        case 0x0018E9AC: gOverlayID = LOADED_OVL_4_SUBOVL_6; break;
-        case 0x0019247A: gOverlayID = LOADED_OVL_4_SUBOVL_7; break;
-        case 0x00194D3C: gOverlayID = LOADED_OVL_4_SUBOVL_8; break;
-        case 0x00196044: gOverlayID = LOADED_OVL_4_SUBOVL_9; break;
-        case 0x00198A78: gOverlayID = LOADED_OVL_4_SUBOVL_10; break;
-        case 0x001A201E: gOverlayID = LOADED_OVL_5_SUBOVL_1; break;
-        case 0x001A48B4: gOverlayID = LOADED_OVL_5_SUBOVL_2; break;
-        case 0x001A75E2: gOverlayID = LOADED_OVL_5_SUBOVL_3; break;
-        case 0x001AA720: gOverlayID = LOADED_OVL_5_SUBOVL_4; break;
-        case 0x001AC9C6: gOverlayID = LOADED_OVL_5_SUBOVL_5; break;
-        case 0x001AE5AA: gOverlayID = LOADED_OVL_5_SUBOVL_6; break;
-        case 0x001B0CD4: gOverlayID = LOADED_OVL_5_SUBOVL_7; break;
-        case 0x001C2036: gOverlayID = LOADED_OVL_6_SUBOVL_1; break;
-        case 0x001C4300: gOverlayID = LOADED_OVL_6_SUBOVL_2; break;
-        case 0x001C61CA: gOverlayID = LOADED_OVL_6_SUBOVL_3; break;
-        case 0x001C83A8: gOverlayID = LOADED_OVL_6_SUBOVL_4; break;
-        case 0x001CA71A: gOverlayID = LOADED_OVL_6_SUBOVL_5; break;
-        case 0x001CC23C: gOverlayID = LOADED_OVL_6_SUBOVL_6; break;
-        case 0x001CD2FC: gOverlayID = LOADED_OVL_6_SUBOVL_7; break;
-        case 0x001CE3BA: gOverlayID = LOADED_OVL_6_SUBOVL_8; break;
-        case 0x001CF478: gOverlayID = LOADED_OVL_6_SUBOVL_9; break;
-        case 0x001D0D7A: gOverlayID = LOADED_OVL_6_SUBOVL_10; break;
-        case 0x001D1F36: gOverlayID = LOADED_OVL_6_SUBOVL_11; break;
-        case 0x001D3AF4: gOverlayID = LOADED_OVL_6_SUBOVL_12; break;
-        case 0x001D5620: gOverlayID = LOADED_OVL_6_SUBOVL_13; break;
-        case 0x001D7808: gOverlayID = LOADED_OVL_6_SUBOVL_14; break;
-        case 0x001D88C6: gOverlayID = LOADED_OVL_6_SUBOVL_15; break;
-        case 0x001E2028: gOverlayID = LOADED_OVL_7_SUBOVL_1; break;
-        case 0x001E5596: gOverlayID = LOADED_OVL_7_SUBOVL_2; break;
-        case 0x001E8DE4: gOverlayID = LOADED_OVL_7_SUBOVL_3; break;
-        case 0x001EB36E: gOverlayID = LOADED_OVL_7_SUBOVL_4; break;
-        case 0x001EEA8A: gOverlayID = LOADED_OVL_7_SUBOVL_5; break;
-        case 0x001F0882: gOverlayID = LOADED_OVL_7_SUBOVL_6; break;
-        case 0x001F136E: gOverlayID = LOADED_OVL_7_SUBOVL_7; break;
-        case 0x001F2B8A: gOverlayID = LOADED_OVL_7_SUBOVL_8; break;
-        case 0x001F42F8: gOverlayID = LOADED_OVL_7_SUBOVL_9; break;
-        case 0x001F5DBE: gOverlayID = LOADED_OVL_7_SUBOVL_10; break;
-        case 0x00202030: gOverlayID = LOADED_OVL_8_SUBOVL_1; break;
-        case 0x002049BC: gOverlayID = LOADED_OVL_8_SUBOVL_2; break;
-        case 0x00206284: gOverlayID = LOADED_OVL_8_SUBOVL_3; break;
-        case 0x00208A5C: gOverlayID = LOADED_OVL_8_SUBOVL_4; break;
-        case 0x0020A324: gOverlayID = LOADED_OVL_8_SUBOVL_5; break;
-        case 0x0020CAC8: gOverlayID = LOADED_OVL_8_SUBOVL_6; break;
-        case 0x002118BC: gOverlayID = LOADED_OVL_8_SUBOVL_7; break;
-        case 0x0021617A: gOverlayID = LOADED_OVL_8_SUBOVL_8; break;
-        case 0x0021A53E: gOverlayID = LOADED_OVL_8_SUBOVL_9; break;
-        case 0x0021EA7C: gOverlayID = LOADED_OVL_8_SUBOVL_10; break;
-        case 0x00221272: gOverlayID = LOADED_OVL_8_SUBOVL_11; break;
-        case 0x00223304: gOverlayID = LOADED_OVL_8_SUBOVL_12; break;
-        case 0x00226FE4: gOverlayID = LOADED_OVL_8_SUBOVL_13; break;
-        case 0x0024201C: gOverlayID = LOADED_OVL_9_SUBOVL_1; break;
-        case 0x00243BAC: gOverlayID = LOADED_OVL_9_SUBOVL_2; break;
-        case 0x00244B56: gOverlayID = LOADED_OVL_9_SUBOVL_3; break;
-        case 0x00246372: gOverlayID = LOADED_OVL_9_SUBOVL_4; break;
-        case 0x0024726C: gOverlayID = LOADED_OVL_9_SUBOVL_5; break;
-        case 0x0024BD9E: gOverlayID = LOADED_OVL_9_SUBOVL_6; break;
-        case 0x00262010: gOverlayID = LOADED_OVL_10_SUBOVL_1; break;
-        case 0x00267B30: gOverlayID = LOADED_OVL_10_SUBOVL_2; break;
-        case 0x00282010: gOverlayID = LOADED_OVL_11_SUBOVL_1; break;
-        case 0x00288D88: gOverlayID = LOADED_OVL_11_SUBOVL_2; break;
-        case 0x002A2010: gOverlayID = LOADED_OVL_12_SUBOVL_1; break;
-        case 0x002A94A6: gOverlayID = LOADED_OVL_12_SUBOVL_2; break;
-        case 0x002C200C: gOverlayID = LOADED_OVL_13_SUBOVL_1; break;
-        case 0x002E2028: gOverlayID = LOADED_OVL_14_SUBOVL_1; break;
-        case 0x002E35C0: gOverlayID = LOADED_OVL_14_SUBOVL_2; break;
-        case 0x002E4438: gOverlayID = LOADED_OVL_14_SUBOVL_3; break;
-        case 0x002E52E2: gOverlayID = LOADED_OVL_14_SUBOVL_4; break;
-        case 0x002E6188: gOverlayID = LOADED_OVL_14_SUBOVL_5; break;
-        case 0x002E7044: gOverlayID = LOADED_OVL_14_SUBOVL_6; break;
-        case 0x002E85FE: gOverlayID = LOADED_OVL_14_SUBOVL_7; break;
-        case 0x002E9B68: gOverlayID = LOADED_OVL_14_SUBOVL_8; break;
-        case 0x002EB3EA: gOverlayID = LOADED_OVL_14_SUBOVL_9; break;
-        case 0x002ED178: gOverlayID = LOADED_OVL_14_SUBOVL_10; break;
+        case 0x00122016: recomp_load_overlays(0x00800010, (void*) 0x80043000, 0x000019E0); gOverlayID = LOADED_OVL_1_SUBOVL_1; break;
+        case 0x00122B34: recomp_load_overlays(0x008019F0, (void*) 0x80043000, 0x00001AD0); gOverlayID = LOADED_OVL_1_SUBOVL_2; break;
+        case 0x001236E2: recomp_load_overlays(0x008034C0, (void*) 0x80043000, 0x00001A50); gOverlayID = LOADED_OVL_1_SUBOVL_3; break;
+        case 0x00124264: recomp_load_overlays(0x00804F10, (void*) 0x80043000, 0x00001A40); gOverlayID = LOADED_OVL_1_SUBOVL_4; break;
+        case 0x0014201C: recomp_load_overlays(0x00806970, (void*) 0x80043000, 0x00005CE0); gOverlayID = LOADED_OVL_2_SUBOVL_1; break;
+        case 0x00145A94: recomp_load_overlays(0x0080C650, (void*) 0x80043000, 0x00005500); gOverlayID = LOADED_OVL_2_SUBOVL_2; break;
+        case 0x00148D98: recomp_load_overlays(0x00811B50, (void*) 0x80043000, 0x00005800); gOverlayID = LOADED_OVL_2_SUBOVL_3; break;
+        case 0x0014C38E: recomp_load_overlays(0x00817350, (void*) 0x80043000, 0x000036C0); gOverlayID = LOADED_OVL_2_SUBOVL_4; break;
+        case 0x0014E26A: recomp_load_overlays(0x0081AA10, (void*) 0x80043000, 0x000068D0); gOverlayID = LOADED_OVL_2_SUBOVL_5; break;
+        case 0x001521AC: recomp_load_overlays(0x008212E0, (void*) 0x80043000, 0x000044F0); gOverlayID = LOADED_OVL_2_SUBOVL_6; break;
+        case 0x0016201E: recomp_load_overlays(0x008257F0, (void*) 0x80043000, 0x00002F80); gOverlayID = LOADED_OVL_3_SUBOVL_1; break;
+        case 0x00163B62: recomp_load_overlays(0x00828770, (void*) 0x80043000, 0x00007380); gOverlayID = LOADED_OVL_3_SUBOVL_2; break;
+        case 0x0016808C: recomp_load_overlays(0x0082FAF0, (void*) 0x80043000, 0x000062E0); gOverlayID = LOADED_OVL_3_SUBOVL_3; break;
+        case 0x0016B954: recomp_load_overlays(0x00835DD0, (void*) 0x80043000, 0x00007290); gOverlayID = LOADED_OVL_3_SUBOVL_4; break;
+        case 0x0016F620: recomp_load_overlays(0x0083D060, (void*) 0x80043000, 0x000037C0); gOverlayID = LOADED_OVL_3_SUBOVL_5; break;
+        case 0x0017157E: recomp_load_overlays(0x00840820, (void*) 0x80043000, 0x00007590); gOverlayID = LOADED_OVL_3_SUBOVL_6; break;
+        case 0x00175AE4: recomp_load_overlays(0x00847DB0, (void*) 0x80043000, 0x00003DF0); gOverlayID = LOADED_OVL_3_SUBOVL_7; break;
+        case 0x00182028: recomp_load_overlays(0x0084BBC0, (void*) 0x80043000, 0x00007980); gOverlayID = LOADED_OVL_4_SUBOVL_1; break;
+        case 0x001866D6: recomp_load_overlays(0x00853540, (void*) 0x80043000, 0x000070D0); gOverlayID = LOADED_OVL_4_SUBOVL_2; break;
+        case 0x0018A962: recomp_load_overlays(0x0085A610, (void*) 0x80043000, 0x00002670); gOverlayID = LOADED_OVL_4_SUBOVL_3; break;
+        case 0x0018BBB2: recomp_load_overlays(0x0085CC80, (void*) 0x80043000, 0x00002DD0); gOverlayID = LOADED_OVL_4_SUBOVL_4; break;
+        case 0x0018D4BC: recomp_load_overlays(0x0085FA50, (void*) 0x80043000, 0x00002A60); gOverlayID = LOADED_OVL_4_SUBOVL_5; break;
+        case 0x0018E9AC: recomp_load_overlays(0x008624B0, (void*) 0x80043000, 0x00006370); gOverlayID = LOADED_OVL_4_SUBOVL_6; break;
+        case 0x0019247A: recomp_load_overlays(0x00868820, (void*) 0x80043000, 0x00004950); gOverlayID = LOADED_OVL_4_SUBOVL_7; break;
+        case 0x00194D3C: recomp_load_overlays(0x0086D170, (void*) 0x80043000, 0x000025A0); gOverlayID = LOADED_OVL_4_SUBOVL_8; break;
+        case 0x00196044: recomp_load_overlays(0x0086F710, (void*) 0x80043000, 0x00004AE0); gOverlayID = LOADED_OVL_4_SUBOVL_9; break;
+        case 0x00198A78: recomp_load_overlays(0x008741F0, (void*) 0x80043000, 0x00003670); gOverlayID = LOADED_OVL_4_SUBOVL_10; break;
+        case 0x001A201E: recomp_load_overlays(0x00877880, (void*) 0x80043000, 0x00004AD0); gOverlayID = LOADED_OVL_5_SUBOVL_1; break;
+        case 0x001A48B4: recomp_load_overlays(0x0087C350, (void*) 0x80043000, 0x00004A00); gOverlayID = LOADED_OVL_5_SUBOVL_2; break;
+        case 0x001A75E2: recomp_load_overlays(0x00880D50, (void*) 0x80043000, 0x00005140); gOverlayID = LOADED_OVL_5_SUBOVL_3; break;
+        case 0x001AA720: recomp_load_overlays(0x00885E90, (void*) 0x80043000, 0x00004020); gOverlayID = LOADED_OVL_5_SUBOVL_4; break;
+        case 0x001AC9C6: recomp_load_overlays(0x00889EB0, (void*) 0x80043000, 0x00003130); gOverlayID = LOADED_OVL_5_SUBOVL_5; break;
+        case 0x001AE5AA: recomp_load_overlays(0x0088CFE0, (void*) 0x80043000, 0x000045B0); gOverlayID = LOADED_OVL_5_SUBOVL_6; break;
+        case 0x001B0CD4: recomp_load_overlays(0x00891590, (void*) 0x80043000, 0x000036E0); gOverlayID = LOADED_OVL_5_SUBOVL_7; break;
+        case 0x001C2036: recomp_load_overlays(0x00894CA0, (void*) 0x80043000, 0x00003CE0); gOverlayID = LOADED_OVL_6_SUBOVL_1; break;
+        case 0x001C4300: recomp_load_overlays(0x00898980, (void*) 0x80043000, 0x00003760); gOverlayID = LOADED_OVL_6_SUBOVL_2; break;
+        case 0x001C61CA: recomp_load_overlays(0x0089C0E0, (void*) 0x80043000, 0x00003C10); gOverlayID = LOADED_OVL_6_SUBOVL_3; break;
+        case 0x001C83A8: recomp_load_overlays(0x0089FCF0, (void*) 0x80043000, 0x00003F00); gOverlayID = LOADED_OVL_6_SUBOVL_4; break;
+        case 0x001CA71A: recomp_load_overlays(0x008A3BF0, (void*) 0x80043000, 0x00003210); gOverlayID = LOADED_OVL_6_SUBOVL_5; break;
+        case 0x001CC23C: recomp_load_overlays(0x008A6E00, (void*) 0x80043000, 0x00002360); gOverlayID = LOADED_OVL_6_SUBOVL_6; break;
+        case 0x001CD2FC: recomp_load_overlays(0x008A9160, (void*) 0x80043000, 0x00002360); gOverlayID = LOADED_OVL_6_SUBOVL_7; break;
+        case 0x001CE3BA: recomp_load_overlays(0x008AB4C0, (void*) 0x80043000, 0x00002360); gOverlayID = LOADED_OVL_6_SUBOVL_8; break;
+        case 0x001CF478: recomp_load_overlays(0x008AD820, (void*) 0x80043000, 0x00002F90); gOverlayID = LOADED_OVL_6_SUBOVL_9; break;
+        case 0x001D0D7A: recomp_load_overlays(0x008B07B0, (void*) 0x80043000, 0x00002560); gOverlayID = LOADED_OVL_6_SUBOVL_10; break;
+        case 0x001D1F36: recomp_load_overlays(0x008B2D10, (void*) 0x80043000, 0x000034C0); gOverlayID = LOADED_OVL_6_SUBOVL_11; break;
+        case 0x001D3AF4: recomp_load_overlays(0x008B61D0, (void*) 0x80043000, 0x000032B0); gOverlayID = LOADED_OVL_6_SUBOVL_12; break;
+        case 0x001D5620: recomp_load_overlays(0x008B9480, (void*) 0x80043000, 0x00003D50); gOverlayID = LOADED_OVL_6_SUBOVL_13; break;
+        case 0x001D7808: recomp_load_overlays(0x008BD1D0, (void*) 0x80043000, 0x00002360); gOverlayID = LOADED_OVL_6_SUBOVL_14; break;
+        case 0x001D88C6: recomp_load_overlays(0x008BF530, (void*) 0x80043000, 0x00003900); gOverlayID = LOADED_OVL_6_SUBOVL_15; break;
+        case 0x001E2028: recomp_load_overlays(0x008C2E50, (void*) 0x80043000, 0x00005720); gOverlayID = LOADED_OVL_7_SUBOVL_1; break;
+        case 0x001E5596: recomp_load_overlays(0x008C8570, (void*) 0x80043000, 0x00005D00); gOverlayID = LOADED_OVL_7_SUBOVL_2; break;
+        case 0x001E8DE4: recomp_load_overlays(0x008CE270, (void*) 0x80043000, 0x00004090); gOverlayID = LOADED_OVL_7_SUBOVL_3; break;
+        case 0x001EB36E: recomp_load_overlays(0x008D2300, (void*) 0x80043000, 0x00005A70); gOverlayID = LOADED_OVL_7_SUBOVL_4; break;
+        case 0x001EEA8A: recomp_load_overlays(0x008D7D70, (void*) 0x80043000, 0x000034E0); gOverlayID = LOADED_OVL_7_SUBOVL_5; break;
+        case 0x001F0882: recomp_load_overlays(0x008DB250, (void*) 0x80043000, 0x00001940); gOverlayID = LOADED_OVL_7_SUBOVL_6; break;
+        case 0x001F136E: recomp_load_overlays(0x008DCB90, (void*) 0x80043000, 0x00002E30); gOverlayID = LOADED_OVL_7_SUBOVL_7; break;
+        case 0x001F2B8A: recomp_load_overlays(0x008DF9C0, (void*) 0x80043000, 0x00002DA0); gOverlayID = LOADED_OVL_7_SUBOVL_8; break;
+        case 0x001F42F8: recomp_load_overlays(0x008E2760, (void*) 0x80043000, 0x00003200); gOverlayID = LOADED_OVL_7_SUBOVL_9; break;
+        case 0x001F5DBE: recomp_load_overlays(0x008E5960, (void*) 0x80043000, 0x00003AE0); gOverlayID = LOADED_OVL_7_SUBOVL_10; break;
+        case 0x00202030: recomp_load_overlays(0x008E9470, (void*) 0x80043000, 0x000042F0); gOverlayID = LOADED_OVL_8_SUBOVL_1; break;
+        case 0x002049BC: recomp_load_overlays(0x008ED760, (void*) 0x80043000, 0x00002D30); gOverlayID = LOADED_OVL_8_SUBOVL_2; break;
+        case 0x00206284: recomp_load_overlays(0x008F0490, (void*) 0x80043000, 0x00003FB0); gOverlayID = LOADED_OVL_8_SUBOVL_3; break;
+        case 0x00208A5C: recomp_load_overlays(0x008F4440, (void*) 0x80043000, 0x00002D10); gOverlayID = LOADED_OVL_8_SUBOVL_4; break;
+        case 0x0020A324: recomp_load_overlays(0x008F7150, (void*) 0x80043000, 0x00003EE0); gOverlayID = LOADED_OVL_8_SUBOVL_5; break;
+        case 0x0020CAC8: recomp_load_overlays(0x008FB030, (void*) 0x80043000, 0x00007B60); gOverlayID = LOADED_OVL_8_SUBOVL_6; break;
+        case 0x002118BC: recomp_load_overlays(0x00902B90, (void*) 0x80043000, 0x00006B80); gOverlayID = LOADED_OVL_8_SUBOVL_7; break;
+        case 0x0021617A: recomp_load_overlays(0x00909710, (void*) 0x80043000, 0x000066C0); gOverlayID = LOADED_OVL_8_SUBOVL_8; break;
+        case 0x0021A53E: recomp_load_overlays(0x0090FDD0, (void*) 0x80043000, 0x000069B0); gOverlayID = LOADED_OVL_8_SUBOVL_9; break;
+        case 0x0021EA7C: recomp_load_overlays(0x00916780, (void*) 0x80043000, 0x000040A0); gOverlayID = LOADED_OVL_8_SUBOVL_10; break;
+        case 0x00221272: recomp_load_overlays(0x0091A820, (void*) 0x80043000, 0x000036A0); gOverlayID = LOADED_OVL_8_SUBOVL_11; break;
+        case 0x00223304: recomp_load_overlays(0x0091DEC0, (void*) 0x80043000, 0x00005C30); gOverlayID = LOADED_OVL_8_SUBOVL_12; break;
+        case 0x00226FE4: recomp_load_overlays(0x00923AF0, (void*) 0x80043000, 0x00007B50); gOverlayID = LOADED_OVL_8_SUBOVL_13; break;
+        case 0x0024201C: recomp_load_overlays(0x0092B660, (void*) 0x80043000, 0x000034C0); gOverlayID = LOADED_OVL_9_SUBOVL_1; break;
+        case 0x00243BAC: recomp_load_overlays(0x0092EB20, (void*) 0x80043000, 0x00002170); gOverlayID = LOADED_OVL_9_SUBOVL_2; break;
+        case 0x00244B56: recomp_load_overlays(0x00930C90, (void*) 0x80043000, 0x00002EA0); gOverlayID = LOADED_OVL_9_SUBOVL_3; break;
+        case 0x00246372: recomp_load_overlays(0x00933B30, (void*) 0x80043000, 0x00002070); gOverlayID = LOADED_OVL_9_SUBOVL_4; break;
+        case 0x0024726C: recomp_load_overlays(0x00935BA0, (void*) 0x80043000, 0x00007BF0); gOverlayID = LOADED_OVL_9_SUBOVL_5; break;
+        case 0x0024BD9E: recomp_load_overlays(0x0093D790, (void*) 0x80043000, 0x00002F80); gOverlayID = LOADED_OVL_9_SUBOVL_6; break;
+        case 0x00262010: recomp_load_overlays(0x00940720, (void*) 0x80043000, 0x00009200); gOverlayID = LOADED_OVL_10_SUBOVL_1; break;
+        case 0x00267B30: recomp_load_overlays(0x00949920, (void*) 0x80043000, 0x0000AC90); gOverlayID = LOADED_OVL_10_SUBOVL_2; break;
+        case 0x00282010: recomp_load_overlays(0x009545C0, (void*) 0x80043000, 0x0000A4A0); gOverlayID = LOADED_OVL_11_SUBOVL_1; break;
+        case 0x00288D88: recomp_load_overlays(0x0095EA60, (void*) 0x80043000, 0x0000D270); gOverlayID = LOADED_OVL_11_SUBOVL_2; break;
+        case 0x002A2010: recomp_load_overlays(0x0096BCE0, (void*) 0x80043000, 0x0000AF30); gOverlayID = LOADED_OVL_12_SUBOVL_1; break;
+        case 0x002A94A6: recomp_load_overlays(0x00976C10, (void*) 0x80043000, 0x0000E320); gOverlayID = LOADED_OVL_12_SUBOVL_2; break;
+        case 0x002C200C: recomp_load_overlays(0x00984F40, (void*) 0x80043000, 0x000022A0); gOverlayID = LOADED_OVL_13_SUBOVL_1; break;
+        case 0x002E2028: recomp_load_overlays(0x00987200, (void*) 0x80043000, 0x00002800); gOverlayID = LOADED_OVL_14_SUBOVL_1; break;
+        case 0x002E35C0: recomp_load_overlays(0x00989A00, (void*) 0x80043000, 0x00001DC0); gOverlayID = LOADED_OVL_14_SUBOVL_2; break;
+        case 0x002E4438: recomp_load_overlays(0x0098B7C0, (void*) 0x80043000, 0x00001E40); gOverlayID = LOADED_OVL_14_SUBOVL_3; break;
+        case 0x002E52E2: recomp_load_overlays(0x0098D600, (void*) 0x80043000, 0x00001E30); gOverlayID = LOADED_OVL_14_SUBOVL_4; break;
+        case 0x002E6188: recomp_load_overlays(0x0098F430, (void*) 0x80043000, 0x00001E50); gOverlayID = LOADED_OVL_14_SUBOVL_5; break;
+        case 0x002E7044: recomp_load_overlays(0x00991280, (void*) 0x80043000, 0x00002840); gOverlayID = LOADED_OVL_14_SUBOVL_6; break;
+        case 0x002E85FE: recomp_load_overlays(0x00993AC0, (void*) 0x80043000, 0x00002780); gOverlayID = LOADED_OVL_14_SUBOVL_7; break;
+        case 0x002E9B68: recomp_load_overlays(0x00996240, (void*) 0x80043000, 0x00002C60); gOverlayID = LOADED_OVL_14_SUBOVL_8; break;
+        case 0x002EB3EA: recomp_load_overlays(0x00998EA0, (void*) 0x80043000, 0x00003390); gOverlayID = LOADED_OVL_14_SUBOVL_9; break;
+        case 0x002ED178: recomp_load_overlays(0x0099C230, (void*) 0x80043000, 0x000036F0); gOverlayID = LOADED_OVL_14_SUBOVL_10; break;
+        default:
+            recomp_load_overlays(devAddr, (void*) vAddr, size);
+            break;
     }
-    
-    recomp_load_overlays((u32) devAddr, (void*) vAddr, size);
 
     osPiStartDma_recomp(&D_8001C400, 0, 0, devAddr, vAddr, (u32) size, &D_8001C418);
-    
+
     // yield_self_1ms();
 
     osRecvMesg(&D_8001C418, NULL, 1);
@@ -330,6 +331,7 @@ extern u32 D_802AC5DC;
 extern int func_ovl3_1_80043000(void); // ovl_3_subovl_1 (Copyright Screen)
 extern int func_ovl2_5_80043000(void); // ovl_2_subovl_5 (Intro) ?
 
+/*
 RECOMP_PATCH void func_8022691C(s32 arg0) {
     s32 sp44;
     s32 sp40;
@@ -375,6 +377,7 @@ RECOMP_PATCH void func_8022691C(s32 arg0) {
     // We dont need to store the variable, as we are interpreting the file ID later when the overlay gets executed.
     //D_802A532C = ((OverlayCallback)0x80043000)();
 
+/*
     switch(gOverlayID) {
         case LOADED_OVL_1_SUBOVL_1:   recomp_load_overlays(0x800010, (void*)0x80043000, 0x000019E0); break;
         case LOADED_OVL_1_SUBOVL_2:   recomp_load_overlays(0x8019F0, (void*)0x80043000, 0x00001AD0); break;
@@ -478,6 +481,7 @@ RECOMP_PATCH void func_8022691C(s32 arg0) {
     }
 
 }
+*/
 
 extern u32 D_802A1D90;
 extern u8 *D_802B0310;
@@ -563,7 +567,8 @@ extern void func_ovl4_9_80043FB4(void);
 extern void func_ovl4_10_80043450(void);
 // TODO
 
-// execute overlay
+// No longer necessary.
+/*
 RECOMP_PATCH void func_802268F4(void) {
     switch(gOverlayID) {
         case LOADED_OVL_1_SUBOVL_1:   func_ovl1_1_80043010(); return;
@@ -593,18 +598,18 @@ RECOMP_PATCH void func_802268F4(void) {
         case LOADED_OVL_4_SUBOVL_8:   func_ovl4_8_80043888(); return;
         case LOADED_OVL_4_SUBOVL_9:   func_ovl4_9_80043FB4(); return;
         case LOADED_OVL_4_SUBOVL_10:  func_ovl4_10_80043450(); return;
-        case LOADED_OVL_5_SUBOVL_1:   return; // TODO
-        case LOADED_OVL_5_SUBOVL_2:   return;
-        case LOADED_OVL_5_SUBOVL_3:   return;
-        case LOADED_OVL_5_SUBOVL_4:   return;
-        case LOADED_OVL_5_SUBOVL_5:   return;
-        case LOADED_OVL_5_SUBOVL_6:   return;
-        case LOADED_OVL_5_SUBOVL_7:   return;
-        case LOADED_OVL_6_SUBOVL_1:   return;
-        case LOADED_OVL_6_SUBOVL_2:   return;
-        case LOADED_OVL_6_SUBOVL_3:   return;
-        case LOADED_OVL_6_SUBOVL_4:   return;
-        case LOADED_OVL_6_SUBOVL_5:   return;
+        case LOADED_OVL_5_SUBOVL_1:   func_ovl5_1_80045A00(); return;
+        case LOADED_OVL_5_SUBOVL_2:   func_ovl5_2_80044A50(); return;
+        case LOADED_OVL_5_SUBOVL_3:   func_ovl5_3_80044CBC(); return;
+        case LOADED_OVL_5_SUBOVL_4:   func_ovl5_4_80045160(); return;
+        case LOADED_OVL_5_SUBOVL_5:   func_ovl5_5_80043A94(); return;
+        case LOADED_OVL_5_SUBOVL_6:   func_ovl5_6_80045510(); return;
+        case LOADED_OVL_5_SUBOVL_7:   func_ovl5_7_80043660(); return;
+        case LOADED_OVL_6_SUBOVL_1:   func_ovl6_1_8004448C(); return;
+        case LOADED_OVL_6_SUBOVL_2:   func_ovl6_2_80043A50(); return;
+        case LOADED_OVL_6_SUBOVL_3:   func_ovl6_3_80043E2C(); return;
+        case LOADED_OVL_6_SUBOVL_4:   func_ovl6_4_80043FB8(); return;
+        case LOADED_OVL_6_SUBOVL_5:   func_ovl6_5_80043C48(); return;
         case LOADED_OVL_6_SUBOVL_6:   return;
         case LOADED_OVL_6_SUBOVL_7:   return;
         case LOADED_OVL_6_SUBOVL_8:   return;
@@ -667,4 +672,45 @@ RECOMP_PATCH void func_802268F4(void) {
                 ;
     }
     //D_802A532C();
+}
+*/
+
+extern Gfx D_8029F718[];
+extern Gfx D_8029F6D8[];
+extern Gfx D_200000[];
+
+extern u8 *D_802A5390;
+extern u32 D_802A5388;
+
+s32 func_802272B0(Gfx **gfx);                      /* extern */
+extern s32 D_80100000;
+extern u8 D_8014C8D0[];
+extern s32 D_8029F5E0;
+extern s32 D_8029F5F8;
+extern s32 D_802A5368;
+extern void* D_802A538C;
+extern Gfx* gMasterDisplayList; // D_802A5390
+
+RECOMP_PATCH Gfx *func_80227464(void) {
+    D_802A5388 = D_8029F5E0;
+    D_802A538C = &D_8014C8D0[D_802A5388 * 0x27000];
+    gMasterDisplayList = (Gfx *)((u8*)(D_802A538C) + 0x24000);
+    D_802A5368 = 0;
+
+    gSPSegment(gMasterDisplayList++, 0x00, 0x00000000);
+    gSPSegment(gMasterDisplayList++, 0x01, (void* ) (((u32)D_802A5388 * 0x25800) + 0x80000000 + (u8*)&D_80100000));
+    gSPDisplayList(gMasterDisplayList++, D_8029F718);
+    if (D_8029F5F8 != 0) {
+        gDPSetColorDither(gMasterDisplayList++, G_CD_DISABLE);
+    } else {
+        gDPSetColorDither(gMasterDisplayList++, G_CD_MAGICSQ);
+    }
+    gSPDisplayList(gMasterDisplayList++, D_8029F6D8);
+    gDPSetDepthImage(gMasterDisplayList++, D_200000);
+    gDPPipeSync(gMasterDisplayList++);
+    gDPSetScissor(gMasterDisplayList++, G_SC_NON_INTERLACE, 8, 6, 311, 233);
+    func_802272B0(&gMasterDisplayList);
+    gSPSetGeometryMode(gMasterDisplayList++, G_ZBUFFER | G_CULL_BACK | G_LIGHTING);
+    gDPSetRenderMode(gMasterDisplayList++, G_RM_AA_ZB_TEX_EDGE, G_RM_AA_ZB_TEX_EDGE2);
+    return gMasterDisplayList;
 }
