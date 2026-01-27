@@ -30,9 +30,20 @@ namespace zelda64 {
         OptionCount
     };
 
+    enum class CustomBombermanMode {
+        On,
+        Off,
+        OptionCount
+    };
+
     NLOHMANN_JSON_SERIALIZE_ENUM(zelda64::FilmGrainMode, {
         {zelda64::FilmGrainMode::On, "On"},
         {zelda64::FilmGrainMode::Off, "Off"}
+    });
+
+    NLOHMANN_JSON_SERIALIZE_ENUM(zelda64::CustomBombermanMode, {
+        {zelda64::CustomBombermanMode::On, "On"},
+        {zelda64::CustomBombermanMode::Off, "Off"}
     });
 
     enum class TargetingMode {
@@ -93,6 +104,9 @@ namespace zelda64 {
 
     AimInvertMode get_invert_y_axis_mode();
     void set_invert_y_axis_mode(AimInvertMode mode);
+
+    CustomBombermanMode get_custom_bomberman_mode();
+    void set_custom_bomberman_mode(CustomBombermanMode mode);
 
     void open_quit_game_prompt();
 };
