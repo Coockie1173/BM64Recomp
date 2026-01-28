@@ -231,8 +231,8 @@ jobs:
           cp cmake-build/RSPRecomp ..
       - name: Run N64Recomp & RSPRecomp
         run: |
-          ./N64Recomp us.rev1.toml
-          ./RSPRecomp aspMain.us.rev1.toml
+          ./N64Recomp bm64.us.toml
+          ./RSPRecomp aspMain.toml
 
       - name: Build BM64Recomp
         run: |-
@@ -317,8 +317,8 @@ jobs:
           cp cmake-build/RSPRecomp.exe ..
       - name: Run N64Recomp & RSPRecomp
         run: |
-          ./N64Recomp.exe us.rev1.toml
-          ./RSPRecomp.exe aspMain.us.rev1.toml
+          ./N64Recomp.exe bm64.us.toml
+          ./RSPRecomp.exe aspMain.toml
       - name: Build BM64Recomp
         run: |-
           # enable ccache
