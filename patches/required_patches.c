@@ -13,6 +13,173 @@ extern void osYieldThread(void);
 
 extern void func_800007F0(s32 id, void* vAddr);
 
+extern Gfx D_8029F718[];
+extern Gfx D_8029F6D8[];
+extern Gfx D_200000[];
+
+extern u8 *D_802A5390;
+extern u32 D_802A5388;
+
+s32 func_802272B0(Gfx **gfx);                      /* extern */
+extern s32 D_80100000;
+extern u8 D_8014C8D0[];
+extern s32 D_8029F5E0;
+extern s32 D_8029F5F8;
+extern s32 D_802A5368;
+extern Gfx* gMasterDisplayList; // D_802A5390
+
+
+extern u8 D_8029F810[];
+extern u8 D_8029F7F8[];
+
+struct UnkStruct800BD5B0 D_800BD770;
+
+struct UnkStruct800BD5B0 {
+    Vp unk_00;
+    u32 unk10;
+    u32 unk14;
+    Mtx unk_18;
+    u32 unk58;
+    f32 unk5C;
+    f32 unk60;
+    f32 unk64;
+    f32 unk68;
+};
+
+struct UnkStruct802A538C {
+    char pad[0x40];  
+};
+
+extern struct UnkStruct800BD5B0 D_800BD5B0[];
+extern Mtx* D_802A538C;
+extern Mtx D_802A53D8;
+
+extern u16 D_802A53D0;
+
+typedef struct {
+  unsigned char	col[3];		/* diffuse light value (rgba) */
+  char 		pad1;
+  unsigned char	colc[3];	/* copy of diffuse light value (rgba) */
+  char 		pad2;
+  signed char	dir[3];		/* direction of light (normalized) */
+  char 		pad3;
+} NewLight_t;
+
+typedef struct {
+  unsigned char	col[3];		/* ambient light value (rgba) */
+  char 		pad1;
+  unsigned char	colc[3];	/* copy of ambient light value (rgba) */
+  char 		pad2;
+} NewAmbient_t;
+
+typedef union {
+    NewLight_t	l;
+} NewLight;
+
+typedef union {
+    NewAmbient_t	l;
+} NewAmbient;
+
+typedef struct {
+    NewAmbient	a;
+    NewLight	l[2];
+} NewLights2;
+
+// hack, due to long width issues
+extern NewLights2 D_8029F800 __attribute__((aligned(8)));
+
+void *Libc_Memcpy(void *dest, void *source, s32 c);
+
+extern void *func_80227678(u32);
+void func_80297D60(void *, s32);
+
+typedef unsigned int uintptr_t;
+
+struct UnkStruct802AC5C0 {
+    u16 unk0;
+    u16 unk2;
+    u16 unk4;
+    u16 unk6;
+    u16 unk8;
+    u16 unkA;
+    u16 unkC;
+    u16 unkE;
+    char pad10[0x4C];
+    f32 unk5C;
+    f32 unk60;
+    f32 unk64;
+    f32 unk68;
+};
+
+extern s32 D_802A53BC;
+extern s32 D_802A53C0;
+extern s32 D_802A53C4;
+extern s32 D_802A53C8;
+
+// 8, 6, 304, 228
+RECOMP_PATCH void func_80227708(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+    arg0 = 0;
+    arg1 = 0;
+    arg2 = 320;
+    arg3 = 240;
+    D_802A53BC = arg0;
+    D_802A53C0 = arg1;
+    D_802A53C4 = (arg0 + arg2);
+    D_802A53C8 = (arg1 + arg3);
+}
+
+RECOMP_PATCH void func_80227D50(struct UnkStruct802AC5C0* arg0, u32 arg1, u32 arg2, u32 arg3, u32 arg4) {
+    arg1 = 0;
+    arg2 = 0;
+    arg3 = 320;
+    arg4 = 240;
+    arg0->unk0 = (arg3 << 1);
+    arg0->unk2 = (arg4 << 1);
+    arg0->unk4 = 0x1FF;
+    arg0->unk6 = 0;
+    arg0->unk8 = (((arg1 << 1) + arg3) << 1);
+    arg0->unkA = (((arg2 << 1) + arg4) << 1);
+    arg0->unkC = 0x1FF;
+    arg0->unkE = 0;
+    arg0->unk5C = arg1;
+    arg0->unk60 = arg2;
+    arg0->unk64 = ((arg1 + arg3));
+    arg0->unk68 = ((arg2 + arg4));
+}
+
+/*
+RECOMP_PATCH void func_8022787C(Gfx** mainGfx) {
+    struct UnkStruct800BD5B0 *temp_s5;
+    struct UnkStruct800BD5B0 *var_s0;
+    Gfx* gfx;
+    s32 i;
+    
+    gfx = *mainGfx;
+
+    gSPSetLights2(gfx++, D_8029F800);
+    gSPPerspNormalize(gfx++, D_802A53D0);
+
+    var_s0 = &D_800BD5B0;
+
+    for (i = 0; i < 4; i++) {
+        temp_s5 = &D_800BD5B0[i];
+        if ((temp_s5->unk10 != 0) && (temp_s5->unk58 != 0)) {
+            Libc_Memcpy((void*)((uintptr_t)D_802A538C + (D_802A5368 * sizeof(Mtx))), &D_802A53D8, sizeof(Mtx));
+            gSPMatrix(gfx++, (uintptr_t)D_802A538C + (D_802A5368 * sizeof(Mtx)), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_PROJECTION);
+            D_802A5368++;
+            gSPViewport(gfx++, &temp_s5->unk_00);
+            Libc_Memcpy((void*)((uintptr_t)D_802A538C + (D_802A5368 * sizeof(Mtx))), &temp_s5->unk_18, sizeof(Mtx));
+            gSPMatrix(gfx++, (uintptr_t)D_802A538C + (D_802A5368 * sizeof(Mtx)), G_MTX_NOPUSH | G_MTX_MUL | G_MTX_PROJECTION);
+            D_802A5368++;
+            gDPSetScissor(gfx++, G_SC_NON_INTERLACE, temp_s5->unk5C, temp_s5->unk60, temp_s5->unk64, temp_s5->unk68);
+            gSPDisplayList(gfx++, func_80227678(temp_s5->unk14));
+        }
+    }
+    *mainGfx = gfx;
+    func_80297D60(temp_s5, 0x1C0);
+}
+*/
+
 enum OverlayIDLoaded {
     UNSUPPORTED_OVERLAY = -1,
     // ovlbank 1
@@ -590,7 +757,6 @@ void func_80226368(s32);
 void func_80297D58(s32, s32);
 void func_80297D50(s32, s32);
 void func_80292BD0(s32 arg0, u8* arg1, s32 arg2);
-void func_80297D60(s32, s32);
 void func_802266E8(s32);
 s32 func_80226604(s32, s32);
 s32 func_802266DC(s32);
@@ -807,7 +973,7 @@ RECOMP_PATCH void func_80292BD0(s32 arg0, u8* arg1, s32 arg2) {
             arg2 -= i;
         }
     }
-    func_80297D60(((u32) (sp44 + 0xF) >> 4) * 0x10, ((u32) (arg2 + 0xF) >> 4) * 0x10);
+    func_80297D60((void*)(((u32) (sp44 + 0xF) >> 4) * 0x10), ((u32) (arg2 + 0xF) >> 4) * 0x10);
     func_8029ADCC(D_802B0310);
     D_802A1D90 = 0;
 }
@@ -958,13 +1124,11 @@ extern Gfx D_200000[];
 extern u8 *D_802A5390;
 extern u32 D_802A5388;
 
-s32 func_802272B0(Gfx **gfx);                      /* extern */
 extern s32 D_80100000;
 extern u8 D_8014C8D0[];
 extern s32 D_8029F5E0;
 extern s32 D_8029F5F8;
 extern s32 D_802A5368;
-extern void* D_802A538C;
 extern Gfx* gMasterDisplayList; // D_802A5390
 
 RECOMP_PATCH Gfx *func_80227464(void) {
