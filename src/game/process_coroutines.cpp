@@ -462,11 +462,13 @@ extern "C" void recomp_process_get_ctx(uint8_t* rdram, recomp_context* ctx) {
 // referenced by function tables.
 // ============================================================================
 
+/*
 extern "C" void longjmp_recomp(uint8_t* rdram, recomp_context* ctx) {
     (void)rdram;
     (void)ctx;
     fprintf(stderr, "[Process] ERROR: longjmp_recomp called - this should not happen!\n");
 }
+*/
 
 extern "C" void setjmp_recomp(uint8_t* rdram, recomp_context* ctx) {
     (void)rdram;

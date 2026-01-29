@@ -23,7 +23,6 @@
 #define osGetTime osGetTime_recomp
 #define osPiStartDma osPiStartDma_recomp
 #define osYieldThread osYieldThread_recomp
-#define osPiReadIo osPiReadIo_recomp
 
 #define osContStartReadData osContStartReadData_recomp
 #define osContGetReadData osContGetReadData_recomp
