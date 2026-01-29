@@ -95,9 +95,9 @@ jobs:
           cmake --build cmake-build --config ${{ matrix.type }} --target BM64Recompiled -j $(nproc)
       - name: Prepare Archive
         run: |
-          mv cmake-build/BM64Recomp BM64Recomp
+          mv cmake-build/BM64Recompiled BM64Recompiled
           rm -rf assets/scss
-          tar -czf BM64Recomp.tar.gz BM64Recomp assets/ recompcontrollerdb.txt
+          tar -czf BM64Recompiled.tar.gz BM64Recompiled assets/ recompcontrollerdb.txt
       - name: Archive BM64Recomp
         uses: actions/upload-artifact@v4
         with:
